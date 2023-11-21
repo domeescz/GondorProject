@@ -1,0 +1,25 @@
+{# templates/login.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block body %}
+    <main class="login-main">
+        <div class="login-container">
+            <form class="login-form" action="{{ path('app_login') }}" method="post">
+                <div class="input-group">
+                    <input type="text" placeholder="USERNAME" name="_username" value="{{ last_username }}" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="PASSWORD" name="_password" required>
+                </div>
+                <button type="submit">LOGIN</button>
+
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }} Try again please.</div>
+                {% endif %}
+            </form>
+        </div>
+    </main>
+{% endblock %}
