@@ -1,4 +1,4 @@
-name: Node.js CI/CD
+name: SyncToProd CI/CD
 
 on: [push] # tells github to run this on any push to the repository
 
@@ -18,5 +18,7 @@ jobs:
           script: |
             cd /mnt/GondorProject
             git pull # we pull any changes from git
+            cp .env .env_git
+            cp .env_prod .env
             php bin/console make:migration
             
