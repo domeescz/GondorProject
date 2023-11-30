@@ -20,7 +20,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/users', name: 'app_admin')]
+    #[Route('/admin/users', name: 'prehled_uzivatelu')]
     public function show(EntityManagerInterface $entityManager): Response
     {
         $uzivatele = $entityManager->getRepository(Uzivatel::class)->findAll();
