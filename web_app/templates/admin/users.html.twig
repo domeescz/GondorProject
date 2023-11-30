@@ -1,0 +1,36 @@
+{# templates/admin/users.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %} Správa uživatelů {% endblock %}
+
+{% block body %}
+    <h1> Správa uživatelů </h1>
+
+    {% if uzivatele|length > 0 %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Roles</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for uzivatel in uzivatele %}
+                <tr>
+                    <td>{{ uzivatel.id }}</td>
+                    <td>{{ uzivatel.username }}</td>
+                    <td>{{ uzivatel.roles | join(', ') }}</td>
+                    <td>
+                        <a href="{{ path('uzivatel_edit', {'id': uzivatel.id}) }}" class="btn btn-primary">Edit roles</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenalezen žádný uživatel.</p>
+    {% endif %}
+{% endblock %}

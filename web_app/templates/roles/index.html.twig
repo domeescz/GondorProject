@@ -1,0 +1,10 @@
+{# templates/roles/show.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Detail uživatele: {{ uzivatel.username }}</h1>
+    <p>ID: {{ uzivatel.id }}</p>
+    <p>Role: {{ uzivatel.roles | join(', ') }}</p>
+
+    <a href="{{ path('uzivatel_edit', {'id': uzivatel.id}) }}">Editovat role</a>
+{% endblock %}

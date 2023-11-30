@@ -1,0 +1,13 @@
+{# templates/roles/edit.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Editovat role uživatele: {{ uzivatel.username }}</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.roles) }}
+    <button type="submit" class="btn btn-primary">Uložit změny</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('uzivatel_show', {'id': uzivatel.id}) }}">Zpět na detail</a>
+{% endblock %}
