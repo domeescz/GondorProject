@@ -1,12 +1,122 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+<script>
+    
+    $(document).ready(function(){
+        $("#novinky").height($(window).height());
+        $("#doporucujeme").height($(window).height()/2);
+        $("#pripravujeme").height($(window).height()/2);
+
+        LoadNovinky();
+        
+
+    });
+
+
+function LoadNovinky()
+{
+
+
+    $.ajax({
+        type: "GET",
+        url: "/public/getNews",
+        dataType: "json",
+        success: function(data){
+            var novinky = data;
+            var html = "";
+            for(var i = 0; i < novinky.length; i++)
+            {
+                html += "<div class='row'><div class='col-12'><h3>" + novinky[i].Article + "</h3></div></div>";
+                html += "<div class='row'><div class='col-12'><p>" + novinky[i].ShortText + "</p></div></div>";
+                html += "<div class='row'><div class='col-12'><p>" + novinky[i].Date + "</p></div></div>";
+                html += "<div class='row'><div class='col-12'><p>" + novinky[i].Author + "</p></div></div>";
+            }
+            $("#novinky").html(html);
+        }
+    });
+
+};
+
+function LoadPripravujeme()
+{
+
+
+    $.ajax({
+        type: "GET",
+        url: "/public/getPrepare",
+        dataType: "json",
+        success: function(data){
+            var novinky = data;
+            var html = "";
+            for(var i = 0; i < novinky.length; i++)
+            {
+                html += "<div class='row'><div class='col-12'><h3>" + novinky[i].Article + "</h3></div></div>";
+                html += "<div class='row'><div class='col-12'><p>" + novinky[i].ShortText + "</p></div></div>";
+                html += "<div class='row'><div class='col-12'><p>" + novinky[i].Date + "</p></div></div>";
+                html += "<div class='row'><div class='col-12'><p>" + novinky[i].Author + "</p></div></div>";
+            }
+            $("#pripravujeme").html(html);
+        }
+    });
+
+};
+
+function LoadDoporucujeme()
+{
+
+
+    $.ajax({
+        type: "GET",
+        url: "/public/getRecomendation",
+        dataType: "json",
+        success: function(data){
+            var novinky = data;
+            var html = "";
+            for(var i = 0; i < novinky.length; i++)
+            {
+                html += "<div class='row'><div class='col-12'><h3>" + novinky[i].Article + "</h3></div></div>";
+                html += "<div class='row'><div class='col-12'><p>" + novinky[i].ShortText + "</p></div></div>";
+                html += "<div class='row'><div class='col-12'><p>" + novinky[i].Date + "</p></div></div>";
+                html += "<div class='row'><div class='col-12'><p>" + novinky[i].Author + "</p></div></div>";
+            }
+            $("#doporucujeme").html(html);
+        }
+    });
+
+};
+
+</script>
+
 <div class="row">
 <div class="col-12 text-center">
-Základní stránka projektu. Bude přidáno.
+<h1>Gondor Magazín</h1>
 </div>
 </div>
 
+<div class="row mt-2">
+    <div class="col-6 text-center">
+    <h2>Novinky</h2>
+    <div class="" id="novinky"></div>
+    </div>
+
+    <div class="col-6 text-center">
+        <div class="row">
+            <div class="col-12 text-center">
+            <h2>Doporučujeme k přečtení</h2>
+            <div class="" id="doporucujeme"></div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-12 text-center">
+            <h2>Připravujeme</h2>
+            <div class="" id="pripravujeme"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
 
