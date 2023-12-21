@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New StatusFile{% endblock %}
+
+{% block body %}
+    <h1>Create new StatusFile</h1>
+
+    {{ include('status_file/_form.html.twig') }}
+
+    <a href="{{ path('app_status_file_index') }}">back to list</a>
+{% endblock %}

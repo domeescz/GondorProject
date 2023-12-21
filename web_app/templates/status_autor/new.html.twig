@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New StatusAutor{% endblock %}
+
+{% block body %}
+    <h1>Create new StatusAutor</h1>
+
+    {{ include('status_autor/_form.html.twig') }}
+
+    <a href="{{ path('app_status_autor_index') }}">back to list</a>
+{% endblock %}

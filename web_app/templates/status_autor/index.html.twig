@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}StatusAutor index{% endblock %}
+
+{% block body %}
+    <h1>StatusAutor index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>StatusName</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for status_autor in status_autors %}
+            <tr>
+                <td>{{ status_autor.id }}</td>
+                <td>{{ status_autor.StatusName }}</td>
+                <td>
+                    <a href="{{ path('app_status_autor_show', {'id': status_autor.id}) }}">show</a>
+                    <a href="{{ path('app_status_autor_edit', {'id': status_autor.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_status_autor_new') }}">Create new</a>
+{% endblock %}

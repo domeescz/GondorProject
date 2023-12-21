@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Casopis{% endblock %}
+
+{% block body %}
+    <h1>Create new Casopis</h1>
+
+    {{ include('casopis/_form.html.twig') }}
+
+    <a href="{{ path('app_casopis_index') }}">back to list</a>
+{% endblock %}

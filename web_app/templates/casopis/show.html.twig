@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Casopis{% endblock %}
+
+{% block body %}
+    <h1>Casopis</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ casopi.id }}</td>
+            </tr>
+            <tr>
+                <th>Rok</th>
+                <td>{{ casopi.Rok }}</td>
+            </tr>
+            <tr>
+                <th>Poradi</th>
+                <td>{{ casopi.Poradi }}</td>
+            </tr>
+            <tr>
+                <th>Titul</th>
+                <td>{{ casopi.Titul }}</td>
+            </tr>
+            <tr>
+                <th>Popis</th>
+                <td>{{ casopi.Popis }}</td>
+            </tr>
+            <tr>
+                <th>Publikovan</th>
+                <td>{{ casopi.Publikovan }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_casopis_index') }}">back to list</a>
+
+    <a href="{{ path('app_casopis_edit', {'id': casopi.id}) }}">edit</a>
+
+    {{ include('casopis/_delete_form.html.twig') }}
+{% endblock %}

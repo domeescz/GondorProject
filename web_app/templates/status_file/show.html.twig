@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}StatusFile{% endblock %}
+
+{% block body %}
+    <h1>StatusFile</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ status_file.id }}</td>
+            </tr>
+            <tr>
+                <th>StatusName</th>
+                <td>{{ status_file.StatusName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_status_file_index') }}">back to list</a>
+
+    <a href="{{ path('app_status_file_edit', {'id': status_file.id}) }}">edit</a>
+
+    {{ include('status_file/_delete_form.html.twig') }}
+{% endblock %}

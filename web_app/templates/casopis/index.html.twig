@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Casopis index{% endblock %}
+
+{% block body %}
+    <h1>Casopis index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rok</th>
+                <th>Poradi</th>
+                <th>Titul</th>
+                <th>Popis</th>
+                <th>Publikovan</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for casopi in casopis %}
+            <tr>
+                <td>{{ casopi.id }}</td>
+                <td>{{ casopi.Rok }}</td>
+                <td>{{ casopi.Poradi }}</td>
+                <td>{{ casopi.Titul }}</td>
+                <td>{{ casopi.Popis }}</td>
+                <td>{{ casopi.Publikovan }}</td>
+                <td>
+                    <a href="{{ path('app_casopis_show', {'id': casopi.id}) }}">show</a>
+                    <a href="{{ path('app_casopis_edit', {'id': casopi.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_casopis_new') }}">Create new</a>
+{% endblock %}
