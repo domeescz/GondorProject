@@ -1,0 +1,14 @@
+{# templates/user/new.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Vytvořit Nového Uživatele{% endblock %}
+
+{% block body %}
+<h1>Vytvořit Nového Uživatele</h1>
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+<button class="btn btn-success">Vytvořit Uživatele</button>
+{{ form_end(form) }}
+{% endblock %}
